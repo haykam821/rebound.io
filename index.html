@@ -8,7 +8,21 @@
   canvas.height = window.innerHeight;
 
   function canvasLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawGrid();
+  }
+
+  function drawGrid() {
+
+  }
+
+  // x (int): the X unit on grid to start at
+  // y (int): the Y unit on grid to start at
+  // direction (int): 0-3; right, down, left, up
+  // length (int): units between the two dots
+  function drawSlingshot(x, y, direction, length) {
+
   }
 
   setInterval(canvasLoop, 10)
