@@ -5,8 +5,8 @@
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  var gridheight = 26;
-  var gridwidth = 50;
+  var gridheight = 13;
+  var gridwidth = 25;
 
   function resize() {
 
@@ -19,9 +19,18 @@
 
   function canvasLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = 'darkgray';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawGrid();
+    ctx.fillStyle='black';
+
+/*for(var i=0;i<gridheight;i++){
+  //or(var c=0;i<gridwidth;c++){
+    drawSlingshot(i,i,0,5);
+  //}
+}*/
   }
 
   function drawGrid() {
@@ -33,7 +42,10 @@
   // direction (int): 0-9; right, down, left, up; including halfways
   // length (int): units between the two dots
   function drawSlingshot(x, y, direction, length) {
+    var x2 = (x / gridwidth) * canvas.width;
+    var y2 = (y / gridheight) * canvas.height;
 
+    ctx.fillRect(x2, y2, 5, 5);
   }
 
   setInterval(canvasLoop)
