@@ -1,16 +1,25 @@
+<div class='name'>bound.io</div>
 <canvas id='canvas'></canvas>
 
 <script>
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  var scale = 3;
+  var gridheight = 26;
+  var gridwidth = 50;
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  function resize() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = canvas.width * (gridheight / gridwidth);
+  }
+
+  window.addEventListener('resize', resize, false);
+  window.addEventListener('load', resize, false);
 
   function canvasLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawGrid();
   }
@@ -21,18 +30,41 @@
 
   // x (int): the X unit on grid to start at
   // y (int): the Y unit on grid to start at
-  // direction (int): 0-3; right, down, left, up
+  // direction (int): 0-9; right, down, left, up; including halfways
   // length (int): units between the two dots
   function drawSlingshot(x, y, direction, length) {
 
   }
 
-  setInterval(canvasLoop, 10)
+  setInterval(canvasLoop)
 </script>
 
 <style>
   body {
     margin: 0px;
     background-color: lightgray;
+  }
+
+  #canvas {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+  }
+
+  .name {
+    font-family: Ubuntu;
+  	font-size: 30px;
+    text-align: center;
+    text-shadow:
+  		-1px -1px 0 #000,
+  		1px -1px 0 #000,
+  		-1px 1px 0 #000,
+  		1px 1px 0 #000;
+  	color: #fff;
+    padding-top: 4px;
+    margin: auto;
   }
 </style>
