@@ -38,8 +38,6 @@
         ctx.fillStyle = 'darkgray';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = 'black';
-
         for (var i = 0; i < gridheight; i++) {
             drawDot(1, i, true);
         }
@@ -53,6 +51,8 @@
     }
 
     function drawDot(x, y, fill) {
+        ctx.fillStyle = 'black';
+
         var stuff = coordFrom(x, y);
 
         //ctx.fillRect(stuff.x, stuff.y, 5, 5);
@@ -75,12 +75,16 @@
         var stuff = coordFrom(x, y);
         var endarea = coordFrom(x + length, y);
 
+        ctx.fillStyle = '#2196f3';
+
         ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
 
         ctx.beginPath();
         ctx.ellipse(stuff.x, stuff.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
         ctx.ellipse(endarea.x, endarea.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
         ctx.fill();
+
+        ctx.fillStyle = '#0d47a1';
     }
 
     setInterval(canvasLoop)
