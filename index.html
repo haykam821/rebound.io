@@ -15,9 +15,15 @@
     canvas.height = canvas.width * (gridheight / gridwidth);
 
     name.style.top = canvas.offsetTop / 2;
+
+    canvasLoop();
   }
 
-  function coordFrom(){}
+  function coordFrom(x, y) {
+
+
+    return {x: x2, y: y2};
+  }
 
   window.addEventListener('resize', resize, false);
   window.addEventListener('load', resize, false);
