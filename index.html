@@ -5,7 +5,7 @@
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
-    var name = document.getElementById('name');
+    var reboundio = document.getElementById('name');
 
     var gridheight = 12;
     var gridwidth = 24;
@@ -14,7 +14,7 @@
         canvas.width = window.innerWidth;
         canvas.height = canvas.width * (gridheight / gridwidth);
 
-        name.style.top = canvas.offsetTop / 2;
+        reboundio.style.top = canvas.offsetTop / 2;
 
         canvasLoop();
     }
