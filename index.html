@@ -14,7 +14,8 @@
         canvas.width = window.innerWidth;
         canvas.height = canvas.width * (gridheight / gridwidth);
 
-        reboundio.style.top = canvas.offsetTop / 2;
+        reboundio.style.top = (canvas.offsetTop / 2) - (reboundio.offsetHeight / 2);
+        reboundio.style.left = (window.innerWidth / 2) - (reboundio.offsetWidth / 2);
 
         canvasLoop();
     }
