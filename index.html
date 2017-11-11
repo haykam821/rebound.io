@@ -17,6 +17,8 @@
     name.style.top = canvas.offsetTop / 2;
   }
 
+  function coordFrom
+
   window.addEventListener('resize', resize, false);
   window.addEventListener('load', resize, false);
 
@@ -30,11 +32,11 @@
     ctx.fillStyle='black';
 
 for(var i=0;i<gridheight;i++){
-  //for(var c=0;i<gridwidth;c++){
-    drawSlingshot(i,i,0,5);
-  ///}
+    drawSlingshot(1,i,0,5);
 }
-  }
+for(var i=0;i<gridwidth;i++){
+    drawSlingshot(i,1,0,5);
+}}
 
   function drawGrid() {
 
