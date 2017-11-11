@@ -75,7 +75,7 @@
         var stuff = coordFrom(x, y);
         var endarea = coordFrom(x + length, y);
 
-        ctx.fillRect(stuff.x, stuff.y, endarea.x - stuff.x, 5);
+        ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
 
         ctx.beginPath();
         ctx.ellipse(stuff.x, stuff.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
