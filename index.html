@@ -76,6 +76,7 @@
         length--;
 
         var stuff = coordFrom(x, y);
+        var thing = direction % 2 == 0 ? 2.5 : 0;
 
         if (direction < 3) {
             var endarea = coordFrom(x + length, y);
@@ -84,7 +85,7 @@
             ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
 
             ctx.fillStyle = '#1976d2';
-            ctx.fillRect(stuff.x, stuff.y, endarea.x - stuff.x, 2.5);
+            ctx.fillRect(stuff.x, stuff.y - thing, endarea.x - stuff.x, 2.5);
         } else {
             var endarea = coordFrom(x, y + length);
 
@@ -92,7 +93,7 @@
             ctx.fillRect(stuff.x - 2.5, stuff.y, 5, endarea.y - stuff.y);
 
             ctx.fillStyle = '#1976d2';
-            ctx.fillRect(stuff.x, stuff.y, 2.5, endarea.y - stuff.y);
+            ctx.fillRect(stuff.x - thing, stuff.y, 2.5, endarea.y - stuff.y);
         }
 
         ctx.fillStyle = '#0d47a1';
