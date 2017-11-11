@@ -76,15 +76,16 @@
         var endarea = coordFrom(x + length, y);
 
         ctx.fillStyle = '#1976d2';
-
         ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
 
+        ctx.fillStyle = '#0d47a1';
+        ctx.fillRect(stuff.x, stuff.y, endarea.x - stuff.x, 2.5);
+
+        ctx.fillStyle = '#1976d2';
         ctx.beginPath();
         ctx.ellipse(stuff.x, stuff.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
         ctx.ellipse(endarea.x, endarea.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
         ctx.fill();
-
-        ctx.fillStyle = '#0d47a1';
     }
 
     setInterval(canvasLoop)
