@@ -20,7 +20,8 @@
     }
 
     function coordFrom(x, y) {
-
+        var x2 = (x / gridwidth) * canvas.width;
+        var y2 = (y / gridheight) * canvas.height;
 
         return {
             x: x2,
@@ -37,19 +38,20 @@
         ctx.fillStyle = 'darkgray';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        drawGrid();
         ctx.fillStyle = 'black';
 
         for (var i = 0; i < gridheight; i++) {
-            drawSlingshot(1, i, 0, 5);
+            drawDot(1, i);
         }
         for (var i = 0; i < gridwidth; i++) {
-            drawSlingshot(i, 1, 0, 5);
+            drawDot(i, 1);
         }
     }
 
-    function drawGrid() {
+    function drawDot(x, y) {
+        var stuff = coordFrom(x, y);
 
+        ctx.fillRect(stuff.x, stuff.y, 5, 5);
     }
 
     // x (int): the X unit on grid to start at
@@ -57,10 +59,10 @@
     // direction (int): 0-9; right, down, left, up; including halfways
     // length (int): units between the two dots
     function drawSlingshot(x, y, direction, length) {
-        var x2 = (x / gridwidth) * canvas.width;
-        var y2 = (y / gridheight) * canvas.height;
+        var stuff = coordFrom(x, y);
+        var endarea = coordFrom(x + length, y);
 
-        ctx.fillRect(x2, y2, 5, 5);
+        ctx.fillRect(stuff.x, stuff.y, endarea.x, 5);
     }
 
     setInterval(canvasLoop)
