@@ -46,8 +46,9 @@
         }
 
         drawSlingshot(2, 2, 0, 5);
-        drawSlingshot(2, 3, 0, 3);
-        drawSlingshot(2, 4, 0, 1);
+        drawSlingshot(2, 3, 1, 3);
+        drawSlingshot(2, 4, 3, 5);
+        drawSlingshot(3, 4, 4, 2);
     }
 
     function drawDot(x, y, fill) {
@@ -72,14 +73,27 @@
     // direction (int): 0-3; down, up, left, right
     // length (int): units between the two dots
     function drawSlingshot(x, y, direction, length) {
+        length--;
+
         var stuff = coordFrom(x, y);
-        var endarea = coordFrom(x + length, y);
 
-        ctx.fillStyle = '#0d47a1';
-        ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
+        if (direction < 3) {
+            var endarea = coordFrom(x + length, y);
 
-        ctx.fillStyle = '#1976d2';
-        ctx.fillRect(stuff.x, stuff.y, endarea.x - stuff.x, 2.5);
+            ctx.fillStyle = '#0d47a1';
+            ctx.fillRect(stuff.x, stuff.y - 2.5, endarea.x - stuff.x, 5);
+
+            ctx.fillStyle = '#1976d2';
+            ctx.fillRect(stuff.x, stuff.y, endarea.x - stuff.x, 2.5);
+        } else {
+            var endarea = coordFrom(x, y + length);
+
+            ctx.fillStyle = '#0d47a1';
+            ctx.fillRect(stuff.x - 2.5, stuff.y, 5, endarea.y - stuff.y);
+
+            ctx.fillStyle = '#1976d2';
+            ctx.fillRect(stuff.x, stuff.y, 2.5, endarea.y - stuff.y);
+        }
 
         ctx.fillStyle = '#0d47a1';
         ctx.beginPath();
