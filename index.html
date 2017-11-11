@@ -52,14 +52,19 @@
         drawSlingshot(2, 4, 0, 1);
     }
 
-    function drawDot(x, y) {
+    function drawDot(x, y, fill) {
         var stuff = coordFrom(x, y);
 
         //ctx.fillRect(stuff.x, stuff.y, 5, 5);
 
         ctx.beginPath();
         ctx.ellipse(stuff.x, stuff.y, 5, 5, 0 * Math.PI/180, 0, 2 * Math.PI);
-        ctx.stroke();
+
+        if (fill) {
+            ctx.fill();
+        } else {
+            ctx.stroke();
+        }
     }
 
     // x (int): the X unit on grid to start at
