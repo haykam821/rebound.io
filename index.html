@@ -1,17 +1,20 @@
-<div class='name'>rebound.io</div>
+<div id='name' style='position:absolute'>rebound.io</div>
 <canvas id='canvas'></canvas>
 
 <script>
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  var gridheight = 13;
-  var gridwidth = 25;
+  var name = document.getElementById('name');
+
+  var gridheight = 12;
+  var gridwidth = 24;
 
   function resize() {
-
     canvas.width = window.innerWidth;
     canvas.height = canvas.width * (gridheight / gridwidth);
+
+    name.style.top = canvas.offsetTop / 2;
   }
 
   window.addEventListener('resize', resize, false);
@@ -26,11 +29,11 @@
     drawGrid();
     ctx.fillStyle='black';
 
-/*for(var i=0;i<gridheight;i++){
-  //or(var c=0;i<gridwidth;c++){
+for(var i=0;i<gridheight;i++){
+  //for(var c=0;i<gridwidth;c++){
     drawSlingshot(i,i,0,5);
-  //}
-}*/
+  ///}
+}
   }
 
   function drawGrid() {
@@ -66,7 +69,7 @@
     margin:auto;
   }
 
-  .name {
+  #name {
     font-family: Ubuntu;
   	font-size: 30px;
     text-align: center;
