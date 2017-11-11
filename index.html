@@ -2,92 +2,90 @@
 <canvas id='canvas'></canvas>
 
 <script>
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
 
-  var name = document.getElementById('name');
+    var name = document.getElementById('name');
 
-  var gridheight = 12;
-  var gridwidth = 24;
+    var gridheight = 12;
+    var gridwidth = 24;
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = canvas.width * (gridheight / gridwidth);
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.width * (gridheight / gridwidth);
 
-    name.style.top = canvas.offsetTop / 2;
+        name.style.top = canvas.offsetTop / 2;
 
-    canvasLoop();
-  }
+        canvasLoop();
+    }
 
-  function coordFrom(x, y) {
+    function coordFrom(x, y) {
 
 
-    return {x: x2, y: y2};
-  }
+        return {
+            x: x2,
+            y: y2
+        };
+    }
 
-  window.addEventListener('resize', resize, false);
-  window.addEventListener('load', resize, false);
+    window.addEventListener('resize', resize, false);
+    window.addEventListener('load', resize, false);
 
-  function canvasLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function canvasLoop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = 'darkgray';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'darkgray';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    drawGrid();
-    ctx.fillStyle='black';
+        drawGrid();
+        ctx.fillStyle = 'black';
 
-for(var i=0;i<gridheight;i++){
-    drawSlingshot(1,i,0,5);
-}
-for(var i=0;i<gridwidth;i++){
-    drawSlingshot(i,1,0,5);
-}}
+        for (var i = 0; i < gridheight; i++) {
+            drawSlingshot(1, i, 0, 5);
+        }
+        for (var i = 0; i < gridwidth; i++) {
+            drawSlingshot(i, 1, 0, 5);
+        }
+    }
 
-  function drawGrid() {
+    function drawGrid() {
 
-  }
+    }
 
-  // x (int): the X unit on grid to start at
-  // y (int): the Y unit on grid to start at
-  // direction (int): 0-9; right, down, left, up; including halfways
-  // length (int): units between the two dots
-  function drawSlingshot(x, y, direction, length) {
-    var x2 = (x / gridwidth) * canvas.width;
-    var y2 = (y / gridheight) * canvas.height;
+    // x (int): the X unit on grid to start at
+    // y (int): the Y unit on grid to start at
+    // direction (int): 0-9; right, down, left, up; including halfways
+    // length (int): units between the two dots
+    function drawSlingshot(x, y, direction, length) {
+        var x2 = (x / gridwidth) * canvas.width;
+        var y2 = (y / gridheight) * canvas.height;
 
-    ctx.fillRect(x2, y2, 5, 5);
-  }
+        ctx.fillRect(x2, y2, 5, 5);
+    }
 
-  setInterval(canvasLoop)
+    setInterval(canvasLoop)
 </script>
 
 <style>
-  body {
-    margin: 0px;
-    background-color: lightgray;
-  }
-
-  #canvas {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:auto;
-  }
-
-  #name {
-    font-family: Ubuntu;
-  	font-size: 30px;
-    text-align: center;
-    text-shadow:
-  		-1px -1px 0 #000,
-  		1px -1px 0 #000,
-  		-1px 1px 0 #000,
-  		1px 1px 0 #000;
-  	color: #fff;
-    padding-top: 4px;
-    margin: auto;
-  }
+    body {
+        margin: 0px;
+        background-color: lightgray;
+    }
+    #canvas {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    #name {
+        font-family: Ubuntu;
+        font-size: 30px;
+        text-align: center;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        color: #fff;
+        padding-top: 4px;
+        margin: auto;
+    }
 </style>
